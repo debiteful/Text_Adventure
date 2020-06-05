@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<title>
+		I made a game, suffer.
+		</title>
+		<link rel="stylesheet" href="index.css">
+		<script src="index.js"></script>
+		<script src="filereader.js"></script>
+		<!--
+		* SYNTAX FOR SAVE FILE
+		* ===========================================================
+		* startupMessage 	= 	<T><T>
+		* optionText 		= 	<"0"><"0"> where 0 is the index of the entry.
+		* optionAddition 	= 	<'0'><'0'> where 0 is the index of the entry.
+		* optionGroups		=	:0:1,2:0: where 0 is the index of the group, and 1,2 is the list of the entries separated by commas
+		* ===========================================================
+		* Overrides are done by the last conflicting thing in the file being chosen.
+		* Important sections of the text are denoted by <!><!> and will show up as blue text.
+		-->
+	</head>
+	<body onload="startup()">
+		<div id="graphicWrapper">
+			
+		</div>
+		<div id="bodyTextWrapper">
+		
+		</div>
+		<div id="selectionWrapper">
+			
+		</div>
+		<div id="gameSelectionWrapper">
+			<div id="gameSelectionWindow">
+				<div id="GSWTitle">Upload Game</div>
+				<input id="fileInput" type="file" name="file"></input>
+			</div>
+		</div>
+	</body>
+</html>

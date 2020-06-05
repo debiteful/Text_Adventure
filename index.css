@@ -1,0 +1,141 @@
+html {  
+  --scrollbarBG: #CFCFCF;
+  --thumbBG: #ADADAD;
+  
+  overflow: hidden;
+}
+
+body {
+	position: absolute;
+	width:100%;
+	height:100%;
+	margin: 0;
+	background: white;
+}
+#graphicWrapper {
+	position: relative;
+	width: calc(50% - 2px);
+	border: 1px solid white;
+	height: calc(80% - 2px);
+	background: #FFFFFF;
+	margin: 0;
+	padding: 0;
+}
+
+#bodyTextWrapper {
+	position: relative;
+	width: calc(50% - 6px);
+	height: calc(80% - 6px);
+	left: 50%;
+	top: -80%;
+	background: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	border: 3px outset;
+	
+	overflow-y: scroll;
+	
+	scrollbar-width: thin;
+	scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+	padding: 4px;
+}
+
+#bodyTextWrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+#bodyTextWrapper::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+#bodyTextWrapper::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+#selectionWrapper {
+	position: relative;
+	width: calc(100% - 6px);
+	height: calc(20% - 6px);
+	top: -80%;
+	background: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	border: 3px inset;
+	overflow-y: scroll;
+	
+	scrollbar-width: thin;
+	scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+#selectionWrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+#selectionWrapper::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+#selectionWrapper::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+#gameSelectionWrapper{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: white;
+	opacity: 80%;
+	/*display: none;*/
+}
+
+#gameSelectionWindow{
+	position: absolute;
+	left: calc(50% - 200px);
+	top: calc(50% - 50px);
+	width: 400px;
+	height: 100px;
+	text-align: center;
+	background: white;
+	border: 1px solid black;
+}
+
+#GSWTitle{
+	position: relative;
+	width: 100%;
+	padding-top: 10px;
+}
+
+#fileInput{
+	position: relative;
+	margin-top: 20px;
+	width: 50%;
+}
+
+.selection {
+	width: calc(100% - 25px);
+	margin-left: 10px;
+	margin-top: 4px;
+	
+	background: #F0F0F0;
+	padding: 4px;
+	padding-left: 8px;
+	padding-top: 4px;
+	border-radius: 40px;
+	font-family: "Lucida Console", Monaco, monospace;
+	
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.important {
+	color: blue;
+}
