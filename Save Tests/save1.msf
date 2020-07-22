@@ -1,4 +1,25 @@
 MSF
-<T>Hello and welcome. <!>Please</!> press <!>Start</!> to begin.<T>
-<"0">>> Start<"0">
+<T>Hello and welcome. Please press <!>Start</!> to begin.<T>
+<"0">Start<"0">
 <'0'>You have started the game.<'0'>
+<:0:>1,2<:0:>
+
+<"1">Go Left<"1">
+<'1'>Heading left.\nThe first thing you notice is a grandfather <!>clock</!>, ticking softly away in the corner.<'1'>
+<:1:>3,4,5<:1:>
+
+<"2">Go Right<"2">
+<'2'>Heading right.<'2'>
+<:2:><:2:>
+
+<"3">Look at the clock<"3">
+<'3'>You watch the clock. . . nothing changes.<'3'>
+<:3:><:3:>
+
+<"4">Sit down<"4">
+<'4'>You sit down on the carpet, wondering what you are doing with your life.<'4'>
+<:4:><:4:>
+
+<"5">Set yourself on fire.<"5">
+<'5'>You pour a can of gasoline over yourself and light it off.\nIt's pleasantly warm.<'5'>
+<:5:><:5:>

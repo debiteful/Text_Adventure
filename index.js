@@ -1,17 +1,14 @@
 var bodyText = "";
 var prevBodyText = bodyText;
-var optionText = ["Start", "Go Left", "Go Right"];
-var optionAddition = [
-"<br>Welcome to this weird game I created. It's a fun little project I have created to hopefully have some fun with. <br>Anyways, you wake up in a long hallway. To your <a class=\"important\">left</a> looks to be a door. To the <a class=\"important\">right</a> looks to be a staircase.",
-"<br>You head left down the hall.", 
-"<br>You head right down the hall."
-];
-var optionGroups = [[0], [1,2], [], []];
-var startupMessage = "Welcome to the game I made. Very descriptive I know, but this is all subject to change.<br><br>Press Start to begin.<br>";
+var optionText = [];
+var optionAddition = [];
+var currentOptionGroup = 0;
+var optionGroups = [[0]];
+var startupMessage = "";
+var isZerothItem = true;
 
 function startup(){
 	initFileReader();
-	createSlections(0);
 	mainLoop();
 }
 
@@ -32,57 +29,51 @@ function updateText(){
 	}
 }
 
-//CHANGE THIS TO WORK OFF A DYNAMIC ARRAY POSITION
 function selectionHandler(flag){
-	switch(flag){
-	case 0: 
-		console.log(">> Starting Game");
-		removeOption(0);
-		createSlections(1);
-		//Add the line breaks here and make sure to scrub for html tags.
-		bodyText += optionAddition[flag];
-		break;
-	case 1: 
-		console.log(">> Go Left");
-		for(var e in optionGroups[1]){
-			removeOption(optionGroups[1][e]);
-		}
-		bodyText += optionAddition[flag];
-		break;
-	case 2: 
-		console.log(">> Go Right");
-		for(var e in optionGroups[1]){
-			removeOption(optionGroups[1][e]);
-		}
-		bodyText += optionAddition[flag];
-		break;
+	for(let i = 0; i < optionGroups[currentOptionGroup].length; ++i){
+		removeOption(optionGroups[currentOptionGroup][i]);
 	}
+	console.log(flag);
+	createSelections(flag+1);
+	currentOptionGroup = flag + 1;
+	bodyText += "<br><br>" + optionAddition[flag];
 }
 
 function removeOption(optionNum){
 	var el = document.getElementById("option" + optionNum);
-	var opacity = 1.0;
+	if(el != null){
+		var opacity = 1.0;
 
-	var fade = setInterval(() =>{
-		if(opacity <= 0){
-			el.parentNode.removeChild(el);
+		var fade = setInterval(() =>{
+			if(opacity <= 0){
+				el.parentNode.removeChild(el);
 
-			clearTimeout(fade);
-		}
-		else {
-			opacity = opacity - 0.05;
-			el.style.opacity = opacity;
-		}
-	}, 30/1000);
+				clearTimeout(fade);
+			}
+			else {
+				opacity = opacity - 0.05;
+				el.style.opacity = opacity;
+			}
+		}, 30/1000);
+	}
 }
 
-function createSlections(setNumber){
+function createSelections(setNumber){
+	
 	for(var e in optionGroups[setNumber]){
-		createOption(optionGroups[setNumber][e]);
+		if(optionGroups[setNumber][e] == 0 && isZerothItem){
+			createOption(optionGroups[setNumber][e]);
+			isZerothItem = false;
+		}
+		else if(optionGroups[setNumber][e] != 0){
+			createOption(optionGroups[setNumber][e]);
+		}
+		
 	}
 }
 
 function createOption(optionNum){
+	console.log("Making option");
 	var div = document.createElement("DIV");
 	div.className = "selection";
 	div.setAttribute("onclick", "selectionHandler("+optionNum+");");

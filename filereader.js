@@ -11,7 +11,7 @@ function handleFileSelect(event){
 }
 
 function handleFileLoad(event){
-	console.log(event.target.result);
+	//console.log(event.target.result);
 	raw = event.target.result;
 
 	//All save files should be marked with MSF somewhere in the file.
@@ -41,23 +41,50 @@ function handleFileLoad(event){
 		startupMessage = startupMessage.replace(/<\/!>/g, "</a>");
 		bodyText += startupMessage;
 		
+		buffer = buffer.replace(/<!>/g, "<a class=\"important\">");
+		buffer = buffer.replace(/<\/!>/g, "</a>");
+		
+		
+		
 		//Start segment parting
-		console.log(buffer);
-		//while(buffer != "" || buffer){
+		while(buffer != "" || buffer){
 			switch(buffer.charAt(1)){
+				//optionText
 				case '\"':
-				console.log(buffer.charAt(1));
-				
-				
+				var num = Number(buffer.substring(2).substring(0, buffer.substring(2).search("\"")));
+				buffer = buffer.substring(3).substring(buffer.substring(3).search(">") + 1);
+				var temp = buffer.substring(0, buffer.search("<\"" + num + "\">"));
+				buffer = buffer.substring(temp.length + ("<\"" + num + "\">").length + 2);
+				optionText[num] = temp;
+				buffer = buffer.trim();
 				break;
+				//optionAddition
 				case '\'':
-				console.log(buffer.charAt(1));
+				var num = Number(buffer.substring(2).substring(0, buffer.substring(2).search("\'")));
+				buffer = buffer.substring(3).substring(buffer.substring(3).search(">") + 1);
+				var temp = buffer.substring(0, buffer.search("<\'" + num + "\'>"));
+				buffer = buffer.substring(temp.length + ("<\'" + num + "\'>").length + 2);
+				temp = temp.replace(/\\n/g, "<br>");
+				optionAddition[num] = temp;
+				buffer = buffer.trim();
 				break;
+				//optionGroups
 				case ':':
-				console.log(buffer.charAt(1));
+				var num = Number(buffer.substring(2).substring(0, buffer.substring(2).search(":")));
+				buffer = buffer.substring(3).substring(buffer.substring(3).search(">") + 1);
+				var temp = buffer.substring(0, buffer.search("<:" + num + ":>"));
+				buffer = buffer.substring(temp.length + ("<:" + num + ":>").length + 2);
+				let nums = temp.split(",");
+				for(var i = 0; i < nums.length; ++i){
+					if (!optionGroups[num+1]) {
+						optionGroups[num+1] = [];
+					}
+					optionGroups[num+1][i] = Number(nums[i]);
+				}
+				buffer = buffer.trim();
 				break;
 			}
-		//}
+		}
 		
 		
 		
@@ -73,5 +100,7 @@ function handleFileLoad(event){
 				el.style.opacity = opacity;
 			}
 		}, 30/1000);
+		console.log(optionGroups);
+		createSelections(0);
 	}
 }
