@@ -18,7 +18,7 @@ optionGroups		=	<:0:>1,2<:0:> where 0 is the index of the group, and 1,2 is the 
 
 Overrides are done by the last conflicting thing in the file being chosen.
 
-Important sections of the text are denoted by <!><!> and will show up as blue text.
+Important sections of the text are denoted by <!/></!/> and will show up as blue text.
 
 Newline characters are denoted as \n and ONLY usable in the optionAddition tag.
 
