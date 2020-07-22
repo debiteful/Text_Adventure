@@ -8,7 +8,7 @@ Website: https://merthew-game.surge.sh/
 Syntax for save files:
 ===========================================================
 startupMessage  = <T><T> 
-optionText 		  = <"0"><"0"> where 0 is the index of the entry.
+optionText      = <"0"><"0"> where 0 is the index of the entry.
 optionAddition  = <'0'><'0'> where 0 is the index of the entry.
 optionGroups    =	<:0:>1,2<:0:> where 0 is the index of the group, and 1,2 is the list of the entries separated by commas
 ===========================================================
