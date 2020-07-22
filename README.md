@@ -6,7 +6,7 @@ Syntax for save files:
 
 ===========================================================
 
-startupMessage 	= 	<T><T>
+startupMessage 	= <T\><T\>
   
 optionText 		= 	<"0"><"0"> where 0 is the index of the entry.
 
