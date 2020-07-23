@@ -113,7 +113,15 @@ function reset(){
 }
 
 function stepBack(){
-	reset();
+	for(let i = 0; i < optionGroups[currentOptionGroup].length; ++i){
+		removeOption(optionGroups[currentOptionGroup][i]);
+	}
+	bodyText = "";
+	prevBodyText = bodyText;
+	currentOptionGroup = 0;
+	isZerothItem = true;
+	bodyText = startupMessage;
+	createSelections(0);
 	var tempChoiceArray = choiceArray;
 	choiceArray = [];
 	for(let i = 0; i < tempChoiceArray.length - 1; ++ i){
