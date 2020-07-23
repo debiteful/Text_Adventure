@@ -17,10 +17,11 @@
 		* optionGroups		=	<:0:>1,2<:0:> where 0 is the index of the group, and 1,2 is the list of the entries separated by commas
 		* ===========================================================
 		* Overrides are done by the last conflicting thing in the file being chosen.
-		* Important sections of the text are denoted by <!><!> and will show up as blue text.
+		* Important sections of the text are denoted by <!></!> and will show up as blue text.
 		-->
 	</head>
 	<body onload="startup()">
+		
 		<div id="graphicWrapper">
 			
 		</div>
@@ -30,11 +31,16 @@
 		<div id="selectionWrapper">
 			
 		</div>
+		<div id="metaControls">
+			<img id="stepBack" class="metaButton" src="resources/step_back.png" onclick="stepBack()" />
+			<img id="reset" class="metaButton" src="resources/reset.png" onclick="reset()" />
+		</div>
 		<div id="gameSelectionWrapper">
 			<div id="gameSelectionWindow">
 				<div id="GSWTitle">Upload Game</div>
 				<input id="fileInput" type="file" name="file"></input>
 			</div>
 		</div>
+		
 	</body>
 </html>

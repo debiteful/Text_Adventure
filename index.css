@@ -115,6 +115,16 @@ body {
 	width: 50%;
 }
 
+#metaControls{
+	position: absolute;
+	top:5px;
+	left:5px;
+	width: calc(50% - 10px);
+	height: 32px;
+	
+	opacity: 25%;
+}
+
 .selection {
 	width: calc(100% - 25px);
 	margin-left: 10px;
@@ -138,4 +148,8 @@ body {
 
 .important {
 	color: blue;
+}
+
+.metaButton {
+	cursor: pointer;
 }

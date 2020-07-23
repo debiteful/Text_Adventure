@@ -4,6 +4,7 @@ var optionText = [];
 var optionAddition = [];
 var currentOptionGroup = 0;
 var optionGroups = [[0]];
+var choiceArray = [];
 var startupMessage = "";
 var isZerothItem = true;
 
@@ -33,7 +34,8 @@ function selectionHandler(flag){
 	for(let i = 0; i < optionGroups[currentOptionGroup].length; ++i){
 		removeOption(optionGroups[currentOptionGroup][i]);
 	}
-	console.log(flag);
+	choiceArray[choiceArray.length] = flag;
+	console.log(choiceArray);
 	createSelections(flag+1);
 	currentOptionGroup = flag + 1;
 	bodyText += "<br><br>" + optionAddition[flag];
@@ -95,4 +97,26 @@ function createOption(optionNum){
 			}
 		}, 30/1000);
 	}, 400);
+}
+
+function reset(){
+	for(let i = 0; i < optionGroups[currentOptionGroup].length; ++i){
+		removeOption(optionGroups[currentOptionGroup][i]);
+	}
+	bodyText = "";
+	prevBodyText = bodyText;
+	currentOptionGroup = 0;
+	isZerothItem = true;
+	
+	bodyText = startupMessage;
+	createSelections(0);
+}
+
+function stepBack(){
+	reset();
+	var tempChoiceArray = choiceArray;
+	choiceArray = [];
+	for(let i = 0; i < tempChoiceArray.length - 1; ++ i){
+		selectionHandler(tempChoiceArray[i]);
+	}
 }
