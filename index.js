@@ -107,7 +107,7 @@ function reset(){
 	prevBodyText = bodyText;
 	currentOptionGroup = 0;
 	isZerothItem = true;
-	
+	choiceArray = [];
 	bodyText = startupMessage;
 	createSelections(0);
 }
