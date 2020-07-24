@@ -1,7 +1,7 @@
 MSF
 <T>Hello and welcome. Please press <!>Start</!> to begin.<T>
 <"0">Start<"0">
-<'0'>You have started the game.<'0'>
+<'0'>You have started the game!<'0'>
 <:0:>1,2<:0:>
 
 <"1">Go Left<"1">
@@ -9,8 +9,8 @@ MSF
 <:1:>3,4,5<:1:>
 
 <"2">Go Right<"2">
-<'2'>Heading right.<'2'>
-<:2:><:2:>
+<'2'>Heading right. What's that ahead?<'2'>
+<:2:>6,7<:2:>
 
 <"3">Look at the clock<"3">
 <'3'>You watch the clock. . . nothing changes.<'3'>
@@ -23,3 +23,11 @@ MSF
 <"5">Set yourself on fire.<"5">
 <'5'>You pour a can of gasoline over yourself and light it off.\nIt's pleasantly warm.<'5'>
 <:5:><:5:>
+
+<"6">Screw that!<"6">
+<'6'>You flee.<'6'>
+<:6:><:6:>
+
+<"7">Good question<"7">
+<'7'>You boldly go to investigate<'7'>
+<'7'>It's a purple people eater!<'7'>
